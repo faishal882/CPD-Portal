@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .resource import ExportResource
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import ExportData
+from .serializers import ExportSerializer
 
 def home_view(request, *args, **kwargs):
     return render(request, "home.html")
@@ -18,3 +22,14 @@ def excel_export(request, *args, **kwargs):
     response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
     response['Content-Disposition'] = 'attachment; filename="data-export.xls"'
     return response
+
+# REST APIS
+
+@api_view(['GET'])
+def api_view_excel(request, *args, **kwargs):
+    qs = ExportData.objects.all()
+    serializer = ExportSerializer(qs, many=True)
+    return Response(serializer.data, status=201)
+
+
+    

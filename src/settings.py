@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'import_export',
     'export'
 ]
@@ -136,4 +137,11 @@ JAZZMIN_SETTINGS = {
     "search_model": "users.ExtendUser",
     "changeform_format": "vertical_tabs",
     "changeform_format_overrides": {"users.ExtendUser": "collapsible"},
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        
+    ]
 }
