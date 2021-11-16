@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +123,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 IMPORT_EXPORT_USE_TRANSACTION = True
+
+SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "CPD PORTAL",
+    "site_header": "CPD PORTAL",
+    "welcome_sign": "Welcome to the Admin Panel",
+    "copyright": "CPD PORTAL",
+    "search_model": "users.ExtendUser",
+    "changeform_format": "vertical_tabs",
+    "changeform_format_overrides": {"users.ExtendUser": "collapsible"},
+}
