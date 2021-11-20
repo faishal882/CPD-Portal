@@ -1,46 +1,26 @@
-<style>
-  * {
-    margin: 0;
-  }
+{% load static %}
 
-  .sidebar {
-    background: rgb(36, 32, 32);
-    height: 100vh;
-    color: aliceblue;
-  }
-  .logo {
-    height: 80px;
-    padding: 17px 35px;
-    font-size: 0.84rem;
-    border-bottom: 1.5px solid #4c4747a8;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-  }
-</style>
+<link rel="stylesheet" href='{% static "css/sidebar.css" %}' />
 
 <aside class="sidebar">
   <nav>
     <div class="logo">MEDICAL SIMULATION SKILLS INSTITUTE</div>
     <div class="user-profile">
-      <i class="fa fa-portrait" style="font-size: 2"></i>
-    </div>
-    <div class="dashboard">
-      <h4>dashboard</h4>
-    </div>
-    <div class="dashboard-links">
-      <div class="regulatory-bodies">
-        <h4>Regulatory Bodies</h4>
+      <div class="user-profile-icon">
+        <i class="fas fa-user-circle" style="font-size: 2.5rem"></i>
       </div>
+      <div class="user-profile-name">user1234578</div>
+    </div>
+    <div class="dashboard">Dashboard</div>
+    <div class="dashboard-links">
+      <div class="regulatory-bodies-text">Regulatory Bodies</div>
       <ul>
-        <li>
-          <h6>Medical and dental council</h6>
-          <ul>
-            <li>Medical center</li>
-          </ul>
-        </li>
+        <li class="dashboard-council">Medical and dental council</li>
         <li>portal</li>
         <li>participants</li>
         <li>History</li>
+        <li class="dashboard-council">Pharmacy Council</li>
+        <li class="dashboard-council">Nursing & Midwery Council</li>
       </ul>
     </div>
   </nav>
