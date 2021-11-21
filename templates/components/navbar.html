@@ -1,16 +1,25 @@
 {% load static %}
 
-<nav class="navbar" style="background: #fff">
-  <div class="container-fluid">
-    <a class="navbar-brand">DASHBOARD</a>
-    <form class="d-flex">
-      <input
-        class="form-control me-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+<link rel="stylesheet" href='{% static "css/navbar.css" %}' />
+
+<nav class="navbar">
+  <div class="navbar-header">Dashboard</div>
+  <div class="navbar-content">
+    <div class="navbar-search">
+      <form class="navbar-search-form">
+        <input
+          class="input-form"
+          type="search"
+          placeholder="Search by Username"
+          aria-label="Search"
+        />
+        <button type="submit" class="form-sumbit">
+          <i class="fas fa-search" style="font-size: 1.3rem"></i>
+        </button>
+      </form>
+    </div>
+    <div class="navbar-user-icon">
+      <i class="fas fa-house-user" style="font-size: 1.7rem"></i>
+    </div>
   </div>
 </nav>
