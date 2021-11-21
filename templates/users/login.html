@@ -14,74 +14,80 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href='{% static "css/login.css" %}' />
     <title>
       {% block head_title %} Login | CPD PORTAL {% endblock head_title%}
     </title>
   </head>
-  <body>
-    <body>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-              <div class="card-body p-4 p-sm-5">
-                <div
-                  class="logo mb-3"
-                  style="
-                    font-family: Baloo Bhai 2;
-                    font-weight: 700;
-                    color: #4c4747a8;
-                  "
-                  ;
-                >
-                  CPD PORTAL
+  <body style="background-color: #a3b1c7; font-family: Roboto">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+              <div
+                class="logo mb-3"
+                style="
+                  font-family: Baloo Bhai 2;
+                  font-weight: 700;
+                  color: #4c4747a8;
+                "
+                ;
+              >
+                CPD PORTAL
+              </div>
+              <form>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="username"
+                  />
+                  <label for="floatingInput">Email address</label>
                 </div>
-                <form>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="floatingInput"
-                      placeholder="username"
-                    />
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
-                    />
-                    <label for="floatingPassword">Password</label>
-                  </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                  />
+                  <label for="floatingPassword">Password</label>
+                </div>
 
-                  <div class="form-check mb-3"></div>
-                  <div class="d-grid">
-                    <button
-                      class="btn btn-primary btn-login text-uppercase fw-bold"
-                      type="submit"
-                    >
-                      Sign in
-                    </button>
-                  </div>
-                  <hr class="my-4" />
-
-                  <div class="d-grid">
-                    <button
-                      class="btn btn-facebook btn-login text-uppercase fw-bold"
-                      type="submit"
+                <div class="form-check mb-3"></div>
+                <div class="d-grid">
+                  <button
+                    class="btn btn-primary btn-login text-uppercase fw-bold"
+                    type="submit"
+                  >
+                    Sign in
+                  </button>
+                </div>
+                <hr class="my-4" />
+                <div class="d-grid">
+                  <button
+                    class="btn btn-facebook btn-login text-uppercase fw-bold"
+                    type="button"
+                  >
+                    <a
+                      href="/register/"
+                      style="text-decoration: none; color: #fff"
                     >
                       Register
-                    </button>
-                  </div>
-                </form>
-              </div>
+                    </a>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   </body>
 </html>
