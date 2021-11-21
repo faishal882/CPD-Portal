@@ -12,6 +12,9 @@ def home_view(request, *args, **kwargs):
 def portal_view(request, *args, **kwargs):
     return render(request, "pages/portal.html")  
 
+def login_view(request, *args, **kwargs):
+    return render(request, "users/login.html")  
+
 def csv_export(request, *args, **kwargs):
     csv_resource = ExportResource()
     dataset = csv_resource.export()
