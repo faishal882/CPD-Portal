@@ -58,7 +58,22 @@ ul li {
   font-family: "Source Sans Pro", sans-serif;
   padding: 5px;
 }
+ul li:nth-child(1),
+ul li:nth-child(5),
+ul li:nth-child(6) {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #babcbfe6;
+}
 .dashboard-council {
   color: #ffffff;
-  list-style: none;
+}
+
+li:hover {
+  background: #007bff;
+  border-radius: 2px;
+  color: #ffffff;
+  padding: 10px 5px;
 }

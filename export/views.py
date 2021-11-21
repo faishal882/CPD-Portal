@@ -7,7 +7,10 @@ from .models import ExportData
 from .serializers import ExportSerializer
 
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html")
+    return render(request, "pages/home.html")
+
+def portal_view(request, *args, **kwargs):
+    return render(request, "pages/portal.html")  
 
 def csv_export(request, *args, **kwargs):
     csv_resource = ExportResource()
@@ -23,13 +26,7 @@ def excel_export(request, *args, **kwargs):
     response['Content-Disposition'] = 'attachment; filename="data-export.xls"'
     return response
 
-# REST APIS
 
-@api_view(['GET'])
-def api_view_excel(request, *args, **kwargs):
-    qs = ExportData.objects.all()
-    serializer = ExportSerializer(qs, many=True)
-    return Response(serializer.data, status=201)
 
 
     
