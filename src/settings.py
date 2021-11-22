@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'fontawesome-free',
-    'export'
+    'medicalanddental',
 ]
 
 MIDDLEWARE = [
