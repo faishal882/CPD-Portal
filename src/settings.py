@@ -128,6 +128,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+
 IMPORT_EXPORT_USE_TRANSACTION = True
 
 SITE_ID = 1

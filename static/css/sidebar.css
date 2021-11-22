@@ -56,19 +56,17 @@ ul li {
   font-size: 0.905rem;
   font-weight: 400;
   font-family: "Source Sans Pro", sans-serif;
-  padding: 5px;
+  padding: 1px;
 }
-ul li:nth-child(1),
-ul li:nth-child(5),
-ul li:nth-child(6) {
-  list-style: none;
-}
+
 a {
   text-decoration: none;
   color: #babcbfe6;
 }
 .dashboard-council {
+  list-style: none;
   color: #ffffff;
+  padding: 5px 0px;
 }
 
 li:hover {
