@@ -16,7 +16,7 @@
     </p>
   </div>
   <div class="portal-buttons text-center">
-    <a href="{% url 'excel-export' %}">
+    <a href="/medical/export/excel/">
       <button type="button" class="btn btn-primary mx-2 my-4">
         Download <i class="fas fa-download" style="padding: 5px"></i></button
     ></a>
@@ -29,7 +29,7 @@
     <div class="modal-container">
       <!-- <h3>modal content</h3> -->
       <form
-        action="{% url 'excel-upload' %}"
+        action="/medical/upload/excel/"
         method="post"
         enctype="multipart/form-data"
       >
