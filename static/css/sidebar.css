@@ -40,6 +40,17 @@
   font-size: 1rem;
   padding: 10px 30px;
 }
+#dashboard-as-link {
+  display: block;
+  text-decoration: none;
+  color: #babcbfe6;
+}
+#dashboard-as-link:hover {
+  background: #007bff;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 10px 5px;
+}
 
 .dashboard-links {
   font-family: "Baloo Bhai 2", cursive;
