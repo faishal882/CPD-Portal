@@ -27,7 +27,16 @@
   <!-- MODAL -->
   <div class="modal-overlay">
     <div class="modal-container">
-      <h3>modal content</h3>
+      <!-- <h3>modal content</h3> -->
+      <form
+        action="/medical/upload/excel/"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <input type="file" name="myfile" value="myFile" />
+        <button type="submit">Upload</button>
+      </form>
       <button class="close-btn">
         <i class="fas fa-times"></i>
       </button>

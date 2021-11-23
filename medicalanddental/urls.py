@@ -5,7 +5,7 @@ from .views import (portal_view,
                     register_user_view, 
                     csv_export, excel_export, 
                     participants_view, 
-                    history_view)
+                    history_view, excel_upload)
 
 
 
@@ -17,5 +17,5 @@ urlpatterns = [
     path('register/', register_user_view, name='register-user'),
     path('export/csv/', csv_export, name='csv-export'),
     path('export/excel/', excel_export, name='excel-export'),
-    # path('upload/excel/', excel_upload, name='excel-upload'),
+    path('upload/excel/', excel_upload, name='excel-upload'),
 ]

@@ -1,8 +1,8 @@
 import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .resources import MedicalExportResources
-# from tablib import Dataset
+from tablib import Dataset
 
 def home_view(request, *args, **kwargs):
     return render(request, "pages/home.html")
@@ -37,16 +37,17 @@ def excel_export(request, *args, **kwargs):
     return response
 
 
-# def excel_upload(request):
-#     if request.method == 'POST':
-#         person_resource = MedicalExportResources()
-#         dataset = Dataset()
-#         new_persons = request.FILES['myfile']
+def excel_upload(request):
+    if request.method == 'POST':
+        person_resource = MedicalExportResources()
+        dataset = Dataset()
+        new_persons = request.FILES['myfile']
 
-#         imported_data = dataset.load(new_persons.read())
-#         result = person_resource.import_data(dataset, dry_run=True)  # Test the data import
+        imported_data = dataset.load(new_persons.read())
+        
+        result = person_resource.import_data(dataset, dry_run=True)  # Test the data import
+        print(result.has_errors())
+        if not result.has_errors():
+            person_resource.import_data(dataset, dry_run=False) # Actually import now
 
-#         if not result.has_errors():
-#             person_resource.import_data(dataset, dry_run=False)  # Actually import now
-
-#     return render(request, 'pages/portal.html')
+    return HttpResponseRedirect('/medical/portal/')
