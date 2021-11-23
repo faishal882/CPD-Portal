@@ -29,13 +29,20 @@
     <div class="modal-container">
       <!-- <h3>modal content</h3> -->
       <form
-        action="/medical/upload/excel/"
+        action="{% url 'excel-upload' %}"
         method="post"
         enctype="multipart/form-data"
       >
         {% csrf_token %}
-        <input type="file" name="myfile" value="myFile" />
-        <button type="submit">Upload</button>
+        <input
+          type="file"
+          name="myfile"
+          value="myFile"
+          class="btn btn-outline-primary mx-2 my-2"
+        />
+        <button type="submit" id="modal-btn" class="btn btn-primary mx-2">
+          Upload<i class="fas fa-upload" style="padding: 6px"></i>
+        </button>
       </form>
       <button class="close-btn">
         <i class="fas fa-times"></i>

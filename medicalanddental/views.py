@@ -48,6 +48,6 @@ def excel_upload(request):
         result = person_resource.import_data(dataset, dry_run=True)  # Test the data import
         print(result.has_errors())
         if not result.has_errors():
-            person_resource.import_data(dataset, dry_run=False) # Actually import now
+            person_resource.import_data(dataset, dry_run=False) # Actually import now     
 
     return HttpResponseRedirect('/medical/portal/')
