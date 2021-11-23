@@ -8,7 +8,7 @@
 .navbar-header {
   padding: 5px 60px;
   font-size: 1.5rem;
-  color: #2d7ed1;
+  color: #1792d2;
 }
 .navbar-content {
   display: inline-flex;
@@ -18,13 +18,13 @@
   padding-right: 25px;
 }
 .navbar-search-form {
-  border-right: 1.4px solid #2d7ed1;
+  border-right: 1.4px solid #1792d2;
   padding-right: 30px;
 }
 .input-form {
   outline: none !important;
   border: none;
-  border-bottom: 1px solid #2d7ed1;
+  border-bottom: 1px solid #1792d2;
   color: #2d7ed1;
 }
 .form-sumbit {
@@ -39,5 +39,5 @@
   padding: 5px 5px;
   background: transparent;
   border-color: transparent;
-  color: #2d7ed1;
+  color: #1792d2;
 }
