@@ -36,14 +36,22 @@
     <title>CPD PORTAL {% block head_title %} {% endblock head_title%}</title>
   </head>
   <body>
-    <div style="display: flex">
-      <div style="width: 23%; min-width: 200px">
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      "
+    >
+      <div style="width: 10%; min-width: 210px">
         {% include "components/sidebar.html" %}
       </div>
 
       <div
         class="container"
-        style="display: 77%; background: #d5dbe5ab; padding: 0"
+        style="width: 90%; background: #d5dbe5ab; padding: 0; margin: 0"
       >
         <div>{% include "components/navbar.html" %}</div>
 
