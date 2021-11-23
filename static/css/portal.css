@@ -9,3 +9,43 @@
   font-family: "Baloo Bhai 2", cursive;
   font-weight: 700;
 }
+
+/* Modal */
+.modal-overlay {
+  position: relative;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  z-index: -10;
+  margin-top: -130px;
+}
+/* OPEN/CLOSE MODAL */
+.open-modal {
+  visibility: visible;
+  z-index: 10;
+}
+.modal-container {
+  background: #fff;
+  border-radius: 0.5rem;
+  /* width: 400px; */
+  width: 40vw;
+  max-width: 300px;
+  height: 25vh;
+  max-height: 150px;
+  max-width: 620px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: hsl(360, 67%, 44%);
+  cursor: pointer;
+}

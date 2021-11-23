@@ -20,10 +20,21 @@
       <button type="button" class="btn btn-primary mx-2 my-4">
         Download <i class="fas fa-download" style="padding: 5px"></i></button
     ></a>
-    <button type="button" class="btn btn-primary mx-2 my-4">
+    <button type="button" id="modal-btn" class="btn btn-primary mx-2 my-4">
       Upload<i class="fas fa-upload" style="padding: 6px"></i>
     </button>
   </div>
+  <!-- MODAL -->
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <h3>modal content</h3>
+      <button class="close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src='{% static "js/portal.js" %}'></script>
 </div>
 
 {% endblock content %}
