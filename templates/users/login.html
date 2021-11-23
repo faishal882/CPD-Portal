@@ -40,15 +40,17 @@
               >
                 CPD PORTAL
               </div>
-              <form>
+              <form action="/auth/login/" method="post">
+                {% csrf_token %}
                 <div class="form-floating mb-3">
                   <input
                     type="text"
                     class="form-control"
                     id="floatingInput"
                     placeholder="username"
+                    name="username"
                   />
-                  <label for="floatingInput">Email address</label>
+                  <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input
@@ -56,6 +58,7 @@
                     class="form-control"
                     id="floatingPassword"
                     placeholder="Password"
+                    name="password"
                   />
                   <label for="floatingPassword">Password</label>
                 </div>
@@ -76,7 +79,7 @@
                     type="button"
                   >
                     <a
-                      href="/medical/register/"
+                      href="/auth/register/"
                       style="text-decoration: none; color: #fff; display: block"
                     >
                       Register

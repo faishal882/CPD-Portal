@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'fontawesome-free',
+    'authentication',
     'medicalanddental',
 ]
 

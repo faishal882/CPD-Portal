@@ -1,9 +1,11 @@
 import datetime
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .resources import MedicalExportResources
 from tablib import Dataset
 
+@login_required(login_url='/auth/login/')
 def home_view(request, *args, **kwargs):
     return render(request, "pages/home.html")
 
@@ -16,11 +18,11 @@ def participants_view(request, *args, **kwargs):
 def history_view(request, *args, **kwargs):
     return render(request, "pages/history.html")  
 
-def login_view(request, *args, **kwargs):
-    return render(request, "users/login.html")  
+# def login_view(request, *args, **kwargs):
+#     return render(request, "users/login.html")  
 
-def register_user_view(request, *args, **kwargs):
-    return render(request, "users/register_user.html")  
+# def register_user_view(request, *args, **kwargs):
+#     return render(request, "users/register_user.html")  
 
 def csv_export(request, *args, **kwargs):
     csv_resource = MedicalExportResources()
