@@ -10,9 +10,11 @@ def home_view(request, *args, **kwargs):
 def portal_view(request, *args, **kwargs):
     return render(request, "pages/portal.html")  
 
-
 def participants_view(request, *args, **kwargs):
     return render(request, "pages/participants.html")  
+
+def history_view(request, *args, **kwargs):
+    return render(request, "pages/history.html")  
 
 def login_view(request, *args, **kwargs):
     return render(request, "users/login.html")  
