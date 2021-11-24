@@ -1,16 +1,14 @@
-import django_heroku
-import dotenv
+import django_heroku   #inserted code
+import dotenv  #inserted code
 import os
-from pathlib import Path
-import dj_database_url
-from django.conf import settings
+import dj_database_url  #inserted code
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-print(dotenv_file)
-if os.path.isfile(dotenv_file):
-       dotenv.load_dotenv(dotenv_file)
+dotenv_file = os.path.join(BASE_DIR, ".env")  #inserted code
+if os.path.isfile(dotenv_file):                #inserted code
+       dotenv.load_dotenv(dotenv_file)          #inserted code
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',  #inserted code
     'django.contrib.staticfiles',
     'rest_framework',
     'import_export',
@@ -45,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #inserted code
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,15 +76,15 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
+# DATABASES = {         #commented code
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {}  #inserted code
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)  #inserted code
 
 
 # Password validation
@@ -131,9 +129,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  #inserted code
 
 IMPORT_EXPORT_USE_TRANSACTION = True
 
@@ -157,7 +155,7 @@ REST_FRAMEWORK = {
         
     ]
 }
-
-django_heroku.settings(locals())
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
+ 
+django_heroku.settings(locals())                       #inserted code
+options = DATABASES['default'].get('OPTIONS', {})      #inserted code
+options.pop('sslmode', None)                           #inserted code

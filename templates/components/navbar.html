@@ -21,8 +21,52 @@
         </button>
       </form>
     </div>
-    <div class="navbar-user-icon">
-      <i class="fas fa-house-user" style="font-size: 1.7rem"></i>
+    <!-- USER OPTION DROPDOWN -->
+    <div class="dropdown-menu-lg-end">
+      <button
+        class="navbar-user-icon"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fas fa-house-user" style="font-size: 1.7rem"></i>
+      </button>
+      <div
+        class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="dropdownMenuButton"
+        style="width: 270px !important; font-size: 1rem; padding-bottom: 0"
+      >
+        <span style="text-align: center; display: grid; margin: 0 auto"
+          >Account</span
+        >
+        <div class="dropdown-divider"></div>
+        <a
+          href="/auth/change-password/"
+          style="text-decoration: none; color: #1792d2; padding: 0px 10px"
+        >
+          <i class="fas fa-key mr-2"></i> Change password
+        </a>
+        <div class="dropdown-divider"></div>
+        <a
+          href="/auth/logout/"
+          style="text-decoration: none; color: #1792d2; padding: 0px 10px"
+        >
+          <i class="fas fa-sign-out-alt mr-2"></i> Log out
+        </a>
+
+        <div
+          class="dropdown-divider"
+          style="padding-bottom: 0; margin-bottom: 0"
+        ></div>
+
+        <a
+          href="/auth/profile/"
+          class="dropdown-item dropdown-footer active"
+          style="text-align: center"
+          >See Profile</a
+        >
+      </div>
     </div>
   </div>
 </nav>
