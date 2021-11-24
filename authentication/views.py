@@ -1,7 +1,7 @@
 from django.http.response import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
-from .forms import  CustomUserCreationForm
+from .forms import  CustomUserCreationForm, LoginForm
 from django.shortcuts import render, redirect
 
 # from django.contrib.auth.models import User
@@ -37,26 +37,17 @@ def user_register_view(request, *args, **kwargs):
 
 
 def login_view(request, *args, **kwargs):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return HttpResponseRedirect("/")
-        return render(request, 'users/login.html', {'form':form})
-    else:
-        form = AuthenticationForm()
-        return render(request, 'users/login.html', {'form':form})
-    
-        
+    form = LoginForm(request.POST or None)
+    if request.POST and form.is_valid():
+        user = form.login(request)
+        if user:
+            login(request, user)
+            return HttpResponseRedirect("/")
+    return render(request, 'users/login.html', {'form':form})
     
 
 
 def logout_view(request, *args, **kwargs):
-    print("logout....")
     logout(request)
     return HttpResponseRedirect("/auth/login/")
 
