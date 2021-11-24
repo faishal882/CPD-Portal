@@ -48,43 +48,52 @@
               <h3 class="register-heading" style="font-family: Baloo Bhai 2">
                 create your account
               </h3>
-              <div class="row register-form">
-                <div>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control mb-2"
-                      placeholder="Username *"
-                      value=""
-                    />
+              <form action="/auth/register/" method="post">
+                {% csrf_token %}
+
+                <div class="row register-form">
+                  <div>
+                    {% for field, error in form.errors.items %}
+                    <div class="alert alert-danger my-1 p-1" role="alert">
+                      {{ error | striptags }}
+                    </div>
+                    {% endfor %}
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control mb-2"
+                        placeholder="Username *"
+                        name="username"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control mb-2"
+                        placeholder="Email *"
+                        name="email"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control mb-2"
+                        placeholder="Password *"
+                        name="password1"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control mb-2"
+                        placeholder="Confirm Password *"
+                        name="password2"
+                      />
+                    </div>
+                    <input type="submit" class="btnRegister" value="Register" />
                   </div>
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control mb-2"
-                      placeholder="Email *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control mb-2"
-                      placeholder="Password *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control mb-2"
-                      placeholder="Confirm Password *"
-                      value=""
-                    />
-                  </div>
-                  <input type="submit" class="btnRegister" value="Register" />
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

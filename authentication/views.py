@@ -1,9 +1,9 @@
 from django.http.response import HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import  CustomUserCreationForm, LoginForm
 from django.shortcuts import render, redirect
 
+# from django.contrib.auth.forms import AuthenticationForm
 # from django.contrib.auth.models import User
 # from django.urls import reverse
 # from django.http import HttpResponse
@@ -13,28 +13,42 @@ from django.shortcuts import render, redirect
  
 
 # @login_required(login_url='/login/')
+# return HttpResponseRedirect(reverse('core:HomeView'))
 
-def user_register_view(request, *args, **kwargs):
-    if request.user.is_authenticated:
+# def user_register_view(request, *args, **kwargs):
+#     if request.user.is_authenticated:
+#         return HttpResponseRedirect("/")
+
+#     if request.method == "POST":
+#         print(request.POST)
+#         form = CustomUserCreationForm(request.POST)
+#         print("register form....", form)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password1']
+#             user = authenticate(username = username, password = password)
+#             login(request, user)          
+#             return HttpResponseRedirect("/")
+#         return render(request, 'users/register_user.html', {'form':form})
+#     else:
+#         form = CustomUserCreationForm()
+#         return render(request, 'users/register_user.html', {'form':form})
+
+def  user_register_view(request):
+    form = CustomUserCreationForm(request.POST or None)
+    print("register.....")
+    if  request.POST and form.is_valid():
+        form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        print('i am right....', username, password)
         return HttpResponseRedirect("/")
-
-    if request.method == "POST":
-        print(request.POST)
-        form = CustomUserCreationForm(request.POST)
-        print("register form....", form)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username = username, password = password)
-            login(request, user)
-            # return HttpResponseRedirect(reverse('core:HomeView'))
-            return HttpResponseRedirect("/")
-        return render(request, 'users/register_user.html', {'form':form})
-    else:
-        form = CustomUserCreationForm()
-        return render(request, 'users/register_user.html', {'form':form})
-
+    # else:
+    #     form = CustomUserCreationForm()
+    return render(request, 'users/register_user.html', {'form':form})
 
 def login_view(request, *args, **kwargs):
     form = LoginForm(request.POST or None)
