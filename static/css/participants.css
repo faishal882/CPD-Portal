@@ -10,7 +10,7 @@
 }
 
 .participants-content {
-  outline: 1.5px solid #1792d2;
+  border: 1.5px solid #1792d2;
   padding: 5px 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -24,6 +24,7 @@
   padding: 10px 10px;
   width: 100%;
   min-width: 250px;
+  z-index: 5;
   /* margin: 10px 10px; */
 }
 
@@ -34,17 +35,17 @@
   font-size: 1rem;
   font-family: "Baloo Bhai 2", cursive;
   font-weight: 400;
-  /* color: #1792d2; */
-  margin: 5px 5px;
-  padding: 10px 10px;
+  color: #1792d2;
+  /* margin: 5px 5px; */
+  padding: 5px 10px;
   border-radius: 5px;
 }
-.participants-card > div:nth-child(even) {
+/* .participants-card > div:nth-child(even) {
   background: #ff3b0073;
 }
 .participants-card > div:nth-child(odd) {
   background: #00808096;
-}
+} */
 .participants-data-title {
   text-transform: uppercase;
 }
