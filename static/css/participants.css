@@ -40,7 +40,7 @@
   border-radius: 5px;
 }
 .participants-card > div:nth-child(even) {
-  background: #e46e00a2;
+  background: #ff3b0073;
 }
 .participants-card > div:nth-child(odd) {
   background: #00808096;
