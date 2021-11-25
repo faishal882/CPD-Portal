@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function () {
   displayCourses(courses);
 });
 
-// filter items
+
 function displayCourses(courseItems) {
   let displayCourse = courseItems.map(function (course) {
     return `    

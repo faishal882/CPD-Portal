@@ -4,18 +4,6 @@
   justify-items: center;
 }
 
-/* .portal {
-  margin: 80px;
-  outline: 2px dashed #4c4747a8;
-  padding: 20px 100px;
-} */
-/* .portal-text {
-  text-align: center;
-  text-transform: lowercase;
-  font-family: "Baloo Bhai 2", cursive;
-  font-weight: 700;
-} */
-
 /* Modal */
 .modal-overlay {
   position: relative;
