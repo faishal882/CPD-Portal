@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'fontawesome-free',
     'authentication',
     'medicalanddental',
-    'profiles',
 ]
 
 MIDDLEWARE = [
