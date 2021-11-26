@@ -6,5 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
     path('auth/', include('authentication.urls')),
-    path('medical/', include('medicalanddental.urls'))
+    path('participants/', include('participants.urls')),
+    path('medical/', include('medicalanddental.urls')),
 ]

@@ -1,0 +1,154 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href='{% static "css/profile.css" %}' />
+    <title>
+      {% block head_title %} Profile | CPD PORTAL {% endblock head_title%}
+    </title>
+  </head>
+  <body>
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-3 border-right">
+          <div
+            class="d-flex flex-column align-items-center text-center p-3 py-5"
+          >
+            <img
+              class="rounded-circle mt-5"
+              width="150px"
+              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+            /><span class="font-weight-bold"> {{ user.username }} </span
+            ><span class="text-black-50">{{ user.email }}</span><span> </span>
+          </div>
+        </div>
+        <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Profile Settings</h4>
+            </div>
+            <form method="post" action="/participants/update/">
+              {% csrf_token %}
+              
+              {% if form.errors %}
+              
+              {% for error in form.error %}
+              <p class="alert alert-danger p-1" role="alert">
+                {{ error }} is required field
+              </p>
+              {% endfor %} 
+              {% endif %}
+
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <label class="labels">First Name</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="first name"
+                    value="{{ user.first_name  }}"
+                    name="first_name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="labels">Last Name</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="last name"
+                    value="{{ user.last_name  }}"
+                    name="last_name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <label class="labels">Mobile Number</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="enter phone number"
+                    name="mobile"
+                    value="{{ user.profile.mobile }}"
+                    required
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">PIN</label
+                  ><input
+                    type="number"
+                    class="form-control"
+                    placeholder="PIN"
+                    name="pin"
+                    value="{{ user.profile.pin }}"
+                    required
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Hospital</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="Hospital"
+                    name="hospital"
+                    value="{{ user.profile.hospital }}"
+                    required
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels">Profession</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="Profession"
+                    name="profession"
+                    value="{{ user.profile.profession }}"
+                    required
+                  />
+                </div>
+                <div class="col-md-12">
+                  <label class="labels" value="{{user.profile.gender}}"
+                    >Gender</label
+                  >
+                  <select name="gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-5 text-center">
+                <button class="btn btn-primary profile-button" type="submit">
+                  Save Profile
+                </button>
+                <button class="btn btn-primary profile-button" type="button">
+                  <a href="/" style="text-decoration: none; color: #fff"
+                    >Home Page</a
+                  >
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

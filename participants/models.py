@@ -15,7 +15,7 @@ class Profile(models.Model):
     hospital = models.CharField(max_length=220, null=True, blank=True)
     profession =  models.CharField(max_length=220, null=True, blank=True)
     pin = models.IntegerField(null=True, blank=True)
-    email = models.EmailField(null=True, blank=True)
+    mobile = models.IntegerField(null=True, blank=True)
     gender = models.CharField(
         null=True,
         blank=True,  

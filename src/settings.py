@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'whitenoise.runserver_nostatic',  #inserted code
     'django.contrib.staticfiles',
     'rest_framework',
     'import_export',
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'medicalanddental',
     'participants',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

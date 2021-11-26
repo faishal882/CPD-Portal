@@ -15,39 +15,16 @@ from django.shortcuts import render, redirect
 # @login_required(login_url='/login/')
 # return HttpResponseRedirect(reverse('core:HomeView'))
 
-# def user_register_view(request, *args, **kwargs):
-#     if request.user.is_authenticated:
-#         return HttpResponseRedirect("/")
-
-#     if request.method == "POST":
-#         print(request.POST)
-#         form = CustomUserCreationForm(request.POST)
-#         print("register form....", form)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data['username']
-#             password = form.cleaned_data['password1']
-#             user = authenticate(username = username, password = password)
-#             login(request, user)          
-#             return HttpResponseRedirect("/")
-#         return render(request, 'users/register_user.html', {'form':form})
-#     else:
-#         form = CustomUserCreationForm()
-#         return render(request, 'users/register_user.html', {'form':form})
 
 def  user_register_view(request):
     form = CustomUserCreationForm(request.POST or None)
-    print("register.....")
     if  request.POST and form.is_valid():
         form.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
         login(request, user)
-        print('i am right....', username, password)
         return HttpResponseRedirect("/")
-    # else:
-    #     form = CustomUserCreationForm()
     return render(request, 'users/register_user.html', {'form':form})
 
 def login_view(request, *args, **kwargs):
