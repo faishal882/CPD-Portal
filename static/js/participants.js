@@ -1,66 +1,18 @@
-paricipants = [
-  {
-    id: 1,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-  {
-    id: 2,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-  {
-    id: 3,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-  {
-    id: 4,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-  {
-    id: 5,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-  {
-    id: 6,
-    name: "user",
-    hospital: "Hospital",
-    profession: "Doctor",
-    pin: 123456,
-    email: "user@example.com",
-    gender: "Male",
-  },
-];
+// FETCHING DATA FROM BACKEND
+// api url
+const api_url = "/participants/api/profiles/";
 
 // PARTICIPANTS
 const sectionCenter = document.querySelector(".participants-content");
 
 // load participants
 window.addEventListener("DOMContentLoaded", function () {
-  displayParticipants(paricipants);
+  async function getapi(url) {
+    const response = await fetch(url);
+    var data = await response.json();
+    displayParticipants(data);
+  }
+  getapi(api_url);
 });
 
 // filter items
@@ -70,7 +22,7 @@ function displayParticipants(courseItems) {
       <div class="participants-card">
        <div class="participants-data">
          <div class="participants-data-title"><i class="fas fa-user" style="font-size: 1.2rem; padding-right: 5px;"></i>Name</div>
-         <div class="participants-data-data">${participant.name}</div>
+         <div class="participants-data-data">${participant.username}</div>
        </div>
        <div class="participants-data">
          <div class="participants-data-title"><i class="fas fa-clinic-medical" style="font-size: 1.2rem; padding-right: 5px;"></i>Hospital</div>

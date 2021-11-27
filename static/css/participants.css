@@ -5,8 +5,11 @@
 
 .participants-filter {
   outline: 1.5px dashed #1792d2;
-  padding: 20px;
-  margin: 20px 0px;
+  padding: 0px;
+  margin: 10px 0px;
+  color: #1792d2;
+  text-align: center;
+  font-family: "Baloo Bhai 2", cursive;
 }
 
 .participants-content {

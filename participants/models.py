@@ -24,6 +24,10 @@ class Profile(models.Model):
         default = 'Male'
        )
 
+    
+    class Meta:
+        ordering = ['-id']
+
 def user_did_save(sender, instance, created, *args, **kwargs):
 
     if created:

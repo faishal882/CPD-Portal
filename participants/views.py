@@ -1,7 +1,14 @@
 from django.shortcuts import redirect, render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.contrib.auth.decorators import login_required
+
+from participants.models import Profile
+
 from .forms import ProfileForm
+from .serializers import ProfileSerializer
 
-
+@login_required(login_url='/auth/login/')
 def profile_update_view(request, *args, **kwargs):
     if not request.user.is_authenticated:  
         return redirect("/auth/login?next=/participants/update")
@@ -20,4 +27,12 @@ def profile_update_view(request, *args, **kwargs):
         return redirect("/medical/participants/")
   
     return render(request, "pages/profile.html",  {'form':form})
+
+
+# API FOR FETCHING PARTCIPANTS DATA
+@api_view(['GET'])
+def profile_api_view(request, *args, **kwargs):
+    qs = Profile.objects.all()[:6]
+    serializer = ProfileSerializer(qs, many=True)
+    return Response(serializer.data, status=200)
 
