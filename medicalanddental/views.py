@@ -9,20 +9,18 @@ from tablib import Dataset
 def home_view(request, *args, **kwargs):
     return render(request, "pages/home.html")
 
+@login_required(login_url='/auth/login/')
 def portal_view(request, *args, **kwargs):
     return render(request, "pages/portal.html")  
 
+@login_required(login_url='/auth/login/')
 def participants_view(request, *args, **kwargs):
     return render(request, "pages/participants.html")  
 
+@login_required(login_url='/auth/login/')
 def history_view(request, *args, **kwargs):
     return render(request, "pages/history.html")  
 
-# def login_view(request, *args, **kwargs):
-#     return render(request, "users/login.html")  
-
-# def register_user_view(request, *args, **kwargs):
-#     return render(request, "users/register_user.html")  
 
 def csv_export(request, *args, **kwargs):
     csv_resource = MedicalExportResources()
