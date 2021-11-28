@@ -1,7 +1,11 @@
 * {
   margin: 0;
 }
-
+.sidebar-component {
+  width: 10%;
+  min-width: 220px;
+  background: rgb(0, 0, 0);
+}
 .sidebar {
   /* background: rgba(0, 0, 0, 0.932); */
   height: 100vh;
@@ -86,4 +90,11 @@ li a:hover {
   border-radius: 4px;
   color: #ffffff;
   padding: 10px 5px;
+}
+
+@media (max-width: 870px) {
+  .sidebar-component {
+    width: 0;
+    display: none;
+  }
 }
