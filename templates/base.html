@@ -36,27 +36,43 @@
     />
 
     <title>CPD PORTAL {% block head_title %} {% endblock head_title%}</title>
-  </head>
-  <body>
-    <div
-      style="
+    <style>
+      .body-component {
         display: flex;
         flex-direction: row;
         width: 100%;
         margin: 0;
         padding: 0;
-      "
-    >
-      <div
-        style="width: 10%; min-width: 220px; background: rgb(0, 0, 0)"
-      >
+      }
+      .sidebar-component {
+        width: 10%;
+        min-width: 220px;
+        background: rgb(0, 0, 0);
+      }
+      .mainbody-component {
+        width: 90%;
+        background: #d5dbe5ab;
+        padding: 0;
+        margin: 0;
+      }
+      @media (max-width: 870px) {
+        .sidebar-component {
+          width: 0;
+          display: none;
+        }
+        .mainbody-component {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body-component">
+      <div class="sidebar-component">
         {% include "components/sidebar.html" %}
       </div>
 
-      <div
-        class="container"
-        style="width: 90%; background: #d5dbe5ab; padding: 0; margin: 0"
-      >
+      <div class="mainbody-component">
         <div>{% include "components/navbar.html" %}</div>
 
         {% block content %} {% endblock content %}
