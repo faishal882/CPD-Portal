@@ -48,8 +48,8 @@ const sectionCenter = document.querySelector(".section-center");
 // load items
 window.addEventListener("DOMContentLoaded", function () {
   displayCourses(courses);
+  displayModal();
 });
-
 
 function displayCourses(courseItems) {
   let displayCourse = courseItems.map(function (course) {
@@ -73,35 +73,19 @@ function displayCourses(courseItems) {
 // COURSES END
 
 // MODAL UPLOAD
-
-const modal = document.querySelector(".modal-overlay");
-const closeBtn = document.querySelector(".close-btn");
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const modalBtn = element.getElementsByClassName("modal-btn");
-//   var arr = Array.prototype.slice.call(modalBtn);
-//   console.log(arr);
-//   console.log(modalBtn);
-// });
-
-// closeBtn.addEventListener("click", function () {
-//   modal.classList.remove("open-modal");
-// });
+function displayModal() {
+  const modalBtn = document.querySelectorAll(".modal-btn");
+  const modal = document.querySelector(".modal-overlay");
+  const closeBtn = document.querySelector(".close-btn");
+  console.log(modalBtn);
+  modalBtn.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      console.log("i am clicked");
+      modal.classList.add("open-modal");
+    });
+  });
+  closeBtn.addEventListener("click", function () {
+    modal.classList.remove("open-modal");
+  });
+}
 // MODAL UPLOAD END
-
-// console.log(Array.from(modalBtn));
-// Array.from(modalBtn).forEach(function (btn) {
-//   btn.addEventListener("click", function () {
-//     console.log("I AM CLICKED>>>>>>>>");
-//   });
-// });
-// Mbtn.map(function (btn) {
-//   btn.addEventListener("click", function () {
-//     console.log("i am clicked");
-//     modal.classList.add("open-modal");
-//   });
-// });
-
-// modalBtn.addEventListener("click", function () {
-//   modal.classList.add("open-modal");
-// });

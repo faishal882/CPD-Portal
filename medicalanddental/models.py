@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
 
-User = get_user_model()
+# User = get_user_model()
 
 COURSE_CHOICES = (
     ("A", "A"),
@@ -16,7 +16,7 @@ COURSE_CHOICES = (
 
 
 class MedicalDentalCouncil(models.Model):
-    Username = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
+    Username = models.CharField(max_length=15)
     CourseTitle = models.CharField(max_length=10)
     MdcPinNumber = models.IntegerField(null=True, blank=True)
     CertificateNumber = models.IntegerField(null=True, blank=True)
@@ -28,8 +28,9 @@ class MedicalDentalCouncil(models.Model):
         blank=True,  
         max_length = 20,
         choices = COURSE_CHOICES,
+        default="A"
        )
 
-    # def __str__(self):
-    #     return self.Username
+    def __str__(self):
+        return self.Username
 

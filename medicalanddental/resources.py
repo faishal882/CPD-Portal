@@ -4,4 +4,4 @@ from .models import MedicalDentalCouncil
 class MedicalExportResources(resources.ModelResource):
     class Meta:
         model = MedicalDentalCouncil
-        fields = ('Username__username','CourseTitle', 'MdcPinNumber', 'CertificateNumber', 'DateOfCompletion', 'Course', 'EntryTime', 'EntryDate')
+        fields = ('Username','CourseTitle', 'MdcPinNumber', 'CertificateNumber', 'DateOfCompletion', 'Course', 'EntryTime', 'EntryDate')
