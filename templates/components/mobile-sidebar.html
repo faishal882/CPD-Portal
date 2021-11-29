@@ -1,0 +1,66 @@
+<button
+  class="sidebar-toggle"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasLeft"
+  aria-controls="offcanvasLeft"
+>
+  <i class="fas fa-bars"></i>
+</button>
+
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="offcanvasLeft"
+  aria-labelledby="offcanvasLeftLabel"
+  style="background: rgb(0, 0, 0)"
+>
+  <div class="offcanvas-header">
+    <h3 id="offcanvasLeftLabel" style="color: #fff; font-family: 'Sans Pro'">
+      CPD PORTAL
+    </h3>
+    <button
+      type="button"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+      style="background: transparent; border: none"
+    >
+      <i class="fas fa-times" style="color: #fff; font-size: 2rem"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <nav>
+      <div class="logo" style="color: #fff">
+        MEDICAL SIMULATION SKILLS INSTITUTE
+      </div>
+      <div class="user-profile">
+        <div class="user-profile-icon">
+          <i class="fas fa-user-circle" style="font-size: 2.3rem"></i>
+        </div>
+        <div class="user-profile-name" style="color: #fff">
+          {{ user.get_username }}
+        </div>
+      </div>
+      <div class="dashboard">
+        <a href="/" id="dashboard-as-link">Dashboard</a>
+      </div>
+      <div class="dashboard-links">
+        <div class="regulatory-bodies-text">Regulatory Bodies</div>
+        <ul>
+          <li class="dashboard-council">Medical and dental council</li>
+          <li><a href="/medical/portal/">portal</a></li>
+          <li><a href="/medical/participants/">participants</a></li>
+          <li><a href="/medical/history/">History</a></li>
+          <li class="dashboard-council">Pharmacy Council</li>
+          <li><a href="/medical/portal/">portal</a></li>
+          <li><a href="/medical/participants/">participants</a></li>
+          <li><a href="/medical/history/">History</a></li>
+          <li class="dashboard-council">Nursing & Midwery Council</li>
+          <li><a href="/medical/portal/">portal</a></li>
+          <li><a href="/medical/participants/">participants</a></li>
+          <li><a href="/medical/history/">History</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
