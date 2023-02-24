@@ -1,7 +1,7 @@
 databases:
   - name: srcdb
     databaseName: srcdb
-    user: postgres
+    user: faishal
 
 services:
   - type: web
