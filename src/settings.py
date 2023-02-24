@@ -1,4 +1,3 @@
-import django_heroku   #inserted code
 import dotenv  #inserted code
 import os
 import dj_database_url  #inserted code
@@ -18,9 +17,10 @@ if os.path.isfile(dotenv_file):                #inserted code
 SECRET_KEY = 'ym#kpt74$a0e+o@b$ol=7(%dw(u&ij-@2ccl5j-^$wga-1+hvs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,9 +85,8 @@ WSGI_APPLICATION = 'src.wsgi.application'
 #     }
 # }
 
-DATABASES = {}  #inserted code
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)  #inserted code
 
+DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -131,9 +130,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  #inserted code
+if not DEBUG:
+       STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+       STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 IMPORT_EXPORT_USE_TRANSACTION = True
 
@@ -157,6 +156,3 @@ REST_FRAMEWORK = {
     ]
 }
  
-django_heroku.settings(locals())                       #inserted code
-options = DATABASES['default'].get('OPTIONS', {})      #inserted code
-options.pop('sslmode', None)                           #inserted code

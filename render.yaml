@@ -1,0 +1,20 @@
+databases:
+  - name: srcdb
+    databaseName: srcdb
+    user: postgres
+
+services:
+  - type: web
+    name: src
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn src.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: srcdb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
